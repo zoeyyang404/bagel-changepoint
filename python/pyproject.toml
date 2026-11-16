@@ -1,0 +1,49 @@
+[build-system]
+requires = ["scikit-build-core>=0.11.4,<1", "pybind11>=3,<4"]
+build-backend = "scikit_build_core.build"
+
+[project]
+name = "bagel-changepoint"
+version = "1.8.2"
+description = "Bayesian online changepoint detection for linear Gaussian models"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "GPL-2.0-or-later"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Daniel Grose", email = "dan.grose@lancaster.ac.uk"},
+  {name = "Ziyang Yang", email = "zoey.ziyang.yang@outlook.com"},
+  {name = "Paul Fearnhead"},
+]
+maintainers = [{name = "Ziyang Yang", email = "zoey.ziyang.yang@outlook.com"}]
+dependencies = ["numpy>=1.23"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: C++",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+sklearn = ["scikit-learn>=1.6"]
+
+[project.urls]
+Repository = "https://github.com/grosed/bagel"
+
+[tool.scikit-build]
+cmake.version = ">=3.20"
+cmake.build-type = "Release"
+wheel.packages = ["src/bagel"]
+sdist.include = [
+  "/CMakeLists.txt", "/cpp/*.cpp", "/cpp/*.py", "/src/bagel/*.py",
+  "/vendor/bagel/*.h", "/vendor/bagel/*.cpp", "/vendor/core-sha256.json",
+  "/tests/*.py", "/benchmarks/*.py", "/benchmarks/*.md", "/benchmarks/*.json",
+  "/README.md", "/LICENSE",
+]
+sdist.exclude = [
+  "build/**", "dist/**", "benchmarks/results/**",
+  ".pytest_cache/**", "**/.pytest_cache/**", "**/__pycache__/**",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

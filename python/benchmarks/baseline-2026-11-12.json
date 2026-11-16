@@ -1,0 +1,796 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-11-12T10:43:34.330884+00:00",
+  "suite": "standard",
+  "seed": 20261112,
+  "repeats": 5,
+  "warmups": 1,
+  "environment": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cpu": "13th Gen Intel(R) Core(TM) i7-13700KF",
+    "logical_cpus": 24,
+    "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.4",
+    "bagel": "1.8.2",
+    "bagel_location": "<local installed wheel>/bagel/__init__.py",
+    "package_sha256": {
+      "__init__.py": "621a522479b3c755a29a5839df7beea19e622cd1ffc9e9057cdcecd6eaa6cadb",
+      "_core.cp314-win_amd64.pyd": "dad036918f37fd664297f264bbda6aeb1de2393e25846398c9bc1915f5cbe20c",
+      "_inputs.py": "2036d3d5760c155f4243f3984e0f38022e701b9cb94b4d640b22208b67334b04",
+      "api.py": "6f79fc1cf953573c7daf11cf37eaedbc753388c30286931f2296dde96ce0d9eb",
+      "detector.py": "6592014cd41f3b1b28d4d9699874d9c75f0b4e9ae00706bd640d4d975c72aea1"
+    },
+    "benchmark_sha256": "ce188ef84337b238c80358255aa2fdeb77b8c6230925259c0c9199976a40585b",
+    "torch": "2.15.0+cpu",
+    "torch_threads": 16,
+    "gpu": null,
+    "thread_environment": {
+      "OMP_NUM_THREADS": null,
+      "MKL_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null
+    }
+  },
+  "notes": [
+    "All Bagel calculations run on CPU, including torch-cuda inputs.",
+    "Input generation and imports are excluded; fit includes input conversion, callbacks and result snapshots.",
+    "Inputs are rounded to float32 before storage so NumPy float64 and torch float32 observations have identical values.",
+    "Multiple series run serially; no parallel or batched backend is implied.",
+    "Conversion and streaming diagnostics are separate measurements, not additive phases of the timed fits.",
+    "Callback diagnostics measure callback bodies only; residual includes native work and adapter overhead."
+  ],
+  "results": [
+    {
+      "case": {
+        "name": "mean",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.13996360000055574,
+          0.1399400999998761,
+          0.14125590000003285,
+          0.13932290000047942,
+          0.13950540000041656
+        ],
+        "median_seconds": 0.1399400999998761,
+        "min_seconds": 0.13932290000047942,
+        "max_seconds": 0.14125590000003285
+      },
+      "observations_per_second": 7145.914573455966,
+      "input_conversion": {
+        "samples_seconds": [
+          1.1199999789823778e-05,
+          8.999999408842996e-06,
+          8.600000001024455e-06,
+          9.500001397100277e-06,
+          8.700000762473792e-06
+        ],
+        "median_seconds": 8.999999408842996e-06,
+        "min_seconds": 8.600000001024455e-06,
+        "max_seconds": 1.1199999789823778e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.15819200000441924,
+        "callback_body_seconds": 0.027194100173801417,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.13099789983061783,
+        "update_latency_median_seconds": 0.0001570999993418809,
+        "update_latency_p95_seconds": 0.00018379000002823878,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "mean",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.1409591999999975,
+          0.14120330000150716,
+          0.14076610000120127,
+          0.13997489999928803,
+          0.13997500000004948
+        ],
+        "median_seconds": 0.14076610000120127,
+        "min_seconds": 0.13997489999928803,
+        "max_seconds": 0.14120330000150716
+      },
+      "observations_per_second": 7103.983132241827,
+      "input_conversion": {
+        "samples_seconds": [
+          9.839999984251335e-05,
+          0.00010540000039327424,
+          0.00011489999997138511,
+          9.500000123807695e-05,
+          9.73999995039776e-05
+        ],
+        "median_seconds": 9.839999984251335e-05,
+        "min_seconds": 9.500000123807695e-05,
+        "max_seconds": 0.00011489999997138511
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.15819200000441924,
+        "callback_body_seconds": 0.027194100173801417,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.13099789983061783,
+        "update_latency_median_seconds": 0.0001570999993418809,
+        "update_latency_p95_seconds": 0.00018379000002823878,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "long_series",
+        "length": 5000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.7873648000004323,
+          0.7857382000001962,
+          0.7861587999996118,
+          0.7839278999999806,
+          0.783519200000228
+        ],
+        "median_seconds": 0.7857382000001962,
+        "min_seconds": 0.783519200000228,
+        "max_seconds": 0.7873648000004323
+      },
+      "observations_per_second": 6363.442683579277,
+      "input_conversion": {
+        "samples_seconds": [
+          8.699998943484388e-06,
+          8.900000466383062e-06,
+          8.999999408842996e-06,
+          9.299999874201603e-06,
+          1.990000055229757e-05
+        ],
+        "median_seconds": 8.999999408842996e-06,
+        "min_seconds": 8.699998943484388e-06,
+        "max_seconds": 1.990000055229757e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.8694413000630448,
+        "callback_body_seconds": 0.13841329933893576,
+        "callback_calls": 498416,
+        "update_excluding_callback_bodies_seconds": 0.731028000724109,
+        "update_latency_median_seconds": 0.000164399998539011,
+        "update_latency_p95_seconds": 0.00021890500056542808,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "long_series",
+        "length": 5000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.7901208999992377,
+          0.7908290000013949,
+          0.7870163000006869,
+          0.7964169999995647,
+          0.7867105000004813
+        ],
+        "median_seconds": 0.7901208999992377,
+        "min_seconds": 0.7867105000004813,
+        "max_seconds": 0.7964169999995647
+      },
+      "observations_per_second": 6328.145477489361,
+      "input_conversion": {
+        "samples_seconds": [
+          9.659999886935111e-05,
+          0.00010870000005525071,
+          0.00014009999904374126,
+          0.00010910000128205866,
+          0.00010129999827768188
+        ],
+        "median_seconds": 0.00010870000005525071,
+        "min_seconds": 9.659999886935111e-05,
+        "max_seconds": 0.00014009999904374126
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.8694413000630448,
+        "callback_body_seconds": 0.13841329933893576,
+        "callback_calls": 498416,
+        "update_excluding_callback_bodies_seconds": 0.731028000724109,
+        "update_latency_median_seconds": 0.000164399998539011,
+        "update_latency_p95_seconds": 0.00021890500056542808,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "many_particles",
+        "length": 1000,
+        "particles": 128,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.5236918999999034,
+          0.5138472999988153,
+          0.5167019999989861,
+          0.50974320000023,
+          0.517926599999555
+        ],
+        "median_seconds": 0.5167019999989861,
+        "min_seconds": 0.50974320000023,
+        "max_seconds": 0.5236918999999034
+      },
+      "observations_per_second": 1935.351517899993,
+      "input_conversion": {
+        "samples_seconds": [
+          7.99999907030724e-06,
+          1.089999932446517e-05,
+          9.700001101009548e-06,
+          8.800001523923129e-06,
+          8.600000001024455e-06
+        ],
+        "median_seconds": 8.800001523923129e-06,
+        "min_seconds": 7.99999907030724e-06,
+        "max_seconds": 1.089999932446517e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.5795045999657304,
+        "callback_body_seconds": 0.10173470039808308,
+        "callback_calls": 363232,
+        "update_excluding_callback_bodies_seconds": 0.47776989956764737,
+        "update_latency_median_seconds": 0.0006139999995866674,
+        "update_latency_p95_seconds": 0.0006923000000824686,
+        "final_active_particles": 128
+      }
+    },
+    {
+      "case": {
+        "name": "many_particles",
+        "length": 1000,
+        "particles": 128,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.5142242000001715,
+          0.5110137000010582,
+          0.5122504999999364,
+          0.5150424999992538,
+          0.516760799999247
+        ],
+        "median_seconds": 0.5142242000001715,
+        "min_seconds": 0.5110137000010582,
+        "max_seconds": 0.516760799999247
+      },
+      "observations_per_second": 1944.67704942643,
+      "input_conversion": {
+        "samples_seconds": [
+          0.00010719999954744708,
+          0.00014820000069448724,
+          9.580000005371403e-05,
+          0.00011050000102841295,
+          9.689999933470972e-05
+        ],
+        "median_seconds": 0.00010719999954744708,
+        "min_seconds": 9.580000005371403e-05,
+        "max_seconds": 0.00014820000069448724
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.5795045999657304,
+        "callback_body_seconds": 0.10173470039808308,
+        "callback_calls": 363232,
+        "update_excluding_callback_bodies_seconds": 0.47776989956764737,
+        "update_latency_median_seconds": 0.0006139999995866674,
+        "update_latency_p95_seconds": 0.0006923000000824686,
+        "final_active_particles": 128
+      }
+    },
+    {
+      "case": {
+        "name": "four_coefficients",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 4,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.19618090000039956,
+          0.19719609999992826,
+          0.19701079999867943,
+          0.19705190000058792,
+          0.195431500000268
+        ],
+        "median_seconds": 0.19701079999867943,
+        "min_seconds": 0.195431500000268,
+        "max_seconds": 0.19719609999992826
+      },
+      "observations_per_second": 5075.863861304573,
+      "input_conversion": {
+        "samples_seconds": [
+          8.600000001024455e-06,
+          8.800001523923129e-06,
+          8.499999239575118e-06,
+          8.600000001024455e-06,
+          9.900000804918818e-06
+        ],
+        "median_seconds": 8.600000001024455e-06,
+        "min_seconds": 8.499999239575118e-06,
+        "max_seconds": 9.900000804918818e-06
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.215893899965522,
+        "callback_body_seconds": 0.028152200180556974,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.18774169978496502,
+        "update_latency_median_seconds": 0.00021085000025777845,
+        "update_latency_p95_seconds": 0.00026328000067223897,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "four_coefficients",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 4,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.19475899999997637,
+          0.19688619999942603,
+          0.19720239999878686,
+          0.19686820000060834,
+          0.19766450000133773
+        ],
+        "median_seconds": 0.19688619999942603,
+        "min_seconds": 0.19475899999997637,
+        "max_seconds": 0.19766450000133773
+      },
+      "observations_per_second": 5079.0761363819065,
+      "input_conversion": {
+        "samples_seconds": [
+          0.00046489999840559904,
+          9.709999903861899e-05,
+          9.540000064589549e-05,
+          0.00011069999891333282,
+          0.00010010000005422626
+        ],
+        "median_seconds": 0.00010010000005422626,
+        "min_seconds": 9.540000064589549e-05,
+        "max_seconds": 0.00046489999840559904
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.215893899965522,
+        "callback_body_seconds": 0.028152200180556974,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.18774169978496502,
+        "update_latency_median_seconds": 0.00021085000025777845,
+        "update_latency_p95_seconds": 0.00026328000067223897,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "sixteen_coefficients",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 16,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.8699273000001995,
+          0.8680069000001822,
+          0.8710757000008016,
+          0.871652300000278,
+          0.8719884999991336
+        ],
+        "median_seconds": 0.8710757000008016,
+        "min_seconds": 0.8680069000001822,
+        "max_seconds": 0.8719884999991336
+      },
+      "observations_per_second": 1148.005850695961,
+      "input_conversion": {
+        "samples_seconds": [
+          9.100000170292333e-06,
+          9.500001397100277e-06,
+          9.999999747378752e-06,
+          8.899998647393659e-06,
+          1.0000001566368155e-05
+        ],
+        "median_seconds": 9.500001397100277e-06,
+        "min_seconds": 8.899998647393659e-06,
+        "max_seconds": 1.0000001566368155e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.8886616999643593,
+        "callback_body_seconds": 0.02987679977195512,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.8587849001924042,
+        "update_latency_median_seconds": 0.0008939499994085054,
+        "update_latency_p95_seconds": 0.0010147900011361344,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "sixteen_coefficients",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 16,
+        "series": 1,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.8671221000004152,
+          0.8723848999998154,
+          0.8666374000003998,
+          0.867643900000985,
+          0.8676111999993736
+        ],
+        "median_seconds": 0.8676111999993736,
+        "min_seconds": 0.8666374000003998,
+        "max_seconds": 0.8723848999998154
+      },
+      "observations_per_second": 1152.5900080597414,
+      "input_conversion": {
+        "samples_seconds": [
+          9.710000085760839e-05,
+          9.700000009615906e-05,
+          9.59999997576233e-05,
+          9.499999941908754e-05,
+          9.750000026542693e-05
+        ],
+        "median_seconds": 9.700000009615906e-05,
+        "min_seconds": 9.499999941908754e-05,
+        "max_seconds": 9.750000026542693e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.8886616999643593,
+        "callback_body_seconds": 0.02987679977195512,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.8587849001924042,
+        "update_latency_median_seconds": 0.0008939499994085054,
+        "update_latency_p95_seconds": 0.0010147900011361344,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "eight_series_serial",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 8,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          1.153674499999397,
+          1.1461744000007457,
+          1.1365488999999798,
+          1.1315727000001061,
+          1.139499099999739
+        ],
+        "median_seconds": 1.139499099999739,
+        "min_seconds": 1.1315727000001061,
+        "max_seconds": 1.153674499999397
+      },
+      "observations_per_second": 7020.628625333563,
+      "input_conversion": {
+        "samples_seconds": [
+          9.60000033956021e-06,
+          1.0800000382005237e-05,
+          1.089999932446517e-05,
+          1.0599998859106563e-05,
+          1.1699999959091656e-05
+        ],
+        "median_seconds": 1.0800000382005237e-05,
+        "min_seconds": 9.60000033956021e-06,
+        "max_seconds": 1.1699999959091656e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.15849619998516573,
+        "callback_body_seconds": 0.026820299743121723,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.131675900242044,
+        "update_latency_median_seconds": 0.00015759999951114878,
+        "update_latency_p95_seconds": 0.00018253499993079456,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "eight_series_serial",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 8,
+        "variance": "known",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          1.1406669000007241,
+          1.1431718999992881,
+          1.144716699998753,
+          1.1466865000002144,
+          1.1408441999992647
+        ],
+        "median_seconds": 1.1431718999992881,
+        "min_seconds": 1.1406669000007241,
+        "max_seconds": 1.1466865000002144
+      },
+      "observations_per_second": 6998.07264332248,
+      "input_conversion": {
+        "samples_seconds": [
+          0.00014399999963643495,
+          0.00013980000039737206,
+          0.00014089999967836775,
+          0.00014089999967836775,
+          0.00013659999967785552
+        ],
+        "median_seconds": 0.00014089999967836775,
+        "min_seconds": 0.00013659999967785552,
+        "max_seconds": 0.00014399999963643495
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.15849619998516573,
+        "callback_body_seconds": 0.026820299743121723,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.131675900242044,
+        "update_latency_median_seconds": 0.00015759999951114878,
+        "update_latency_p95_seconds": 0.00018253499993079456,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "mean_exact",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "exact"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.1256868000000395,
+          0.12659999999959837,
+          0.1267083000002458,
+          0.12698640000053274,
+          0.12578140000005078
+        ],
+        "median_seconds": 0.12659999999959837,
+        "min_seconds": 0.1256868000000395,
+        "max_seconds": 0.12698640000053274
+      },
+      "observations_per_second": 7898.894154843384,
+      "input_conversion": {
+        "samples_seconds": [
+          9.199999112752266e-06,
+          8.900000466383062e-06,
+          8.400000297115184e-06,
+          1.0100000508828089e-05,
+          8.699998943484388e-06
+        ],
+        "median_seconds": 8.900000466383062e-06,
+        "min_seconds": 8.400000297115184e-06,
+        "max_seconds": 1.0100000508828089e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.1444275999947422,
+        "callback_body_seconds": 0.02813229971616238,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.11629530027857982,
+        "update_latency_median_seconds": 0.00014025000018591527,
+        "update_latency_p95_seconds": 0.00017223999966518017,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "mean_exact",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "known",
+        "distance": "exact"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.12539709999873594,
+          0.12721000000055938,
+          0.12530390000029,
+          0.1268753000003926,
+          0.12623209999946994
+        ],
+        "median_seconds": 0.12623209999946994,
+        "min_seconds": 0.12530390000029,
+        "max_seconds": 0.12721000000055938
+      },
+      "observations_per_second": 7921.915265643201,
+      "input_conversion": {
+        "samples_seconds": [
+          9.539999882690609e-05,
+          9.999999929277692e-05,
+          9.630000022298191e-05,
+          9.859999954642262e-05,
+          9.779999891179614e-05
+        ],
+        "median_seconds": 9.779999891179614e-05,
+        "min_seconds": 9.539999882690609e-05,
+        "max_seconds": 9.999999929277692e-05
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.1444275999947422,
+        "callback_body_seconds": 0.02813229971616238,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.11629530027857982,
+        "update_latency_median_seconds": 0.00014025000018591527,
+        "update_latency_p95_seconds": 0.00017223999966518017,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "unknown_variance",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "unknown",
+        "distance": "approximate"
+      },
+      "input": "numpy",
+      "fit": {
+        "samples_seconds": [
+          0.14321550000022398,
+          0.14174939999975322,
+          0.14483829999880982,
+          0.14470930000061344,
+          0.14382999999907042
+        ],
+        "median_seconds": 0.14382999999907042,
+        "min_seconds": 0.14174939999975322,
+        "max_seconds": 0.14483829999880982
+      },
+      "observations_per_second": 6952.652436949615,
+      "input_conversion": {
+        "samples_seconds": [
+          7.79999936639797e-06,
+          8.899998647393659e-06,
+          8.699998943484388e-06,
+          8.400000297115184e-06,
+          9.499999578110874e-06
+        ],
+        "median_seconds": 8.699998943484388e-06,
+        "min_seconds": 7.79999936639797e-06,
+        "max_seconds": 9.499999578110874e-06
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.16457719996469677,
+        "callback_body_seconds": 0.02768319991810131,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.13689400004659547,
+        "update_latency_median_seconds": 0.0001604999997653067,
+        "update_latency_p95_seconds": 0.00020146000015301973,
+        "final_active_particles": 32
+      }
+    },
+    {
+      "case": {
+        "name": "unknown_variance",
+        "length": 1000,
+        "particles": 32,
+        "dimension": 1,
+        "series": 1,
+        "variance": "unknown",
+        "distance": "approximate"
+      },
+      "input": "torch-cpu",
+      "fit": {
+        "samples_seconds": [
+          0.1472909999993135,
+          0.14425010000013572,
+          0.14505500000086613,
+          0.14417990000038117,
+          0.14352549999966868
+        ],
+        "median_seconds": 0.14425010000013572,
+        "min_seconds": 0.14352549999966868,
+        "max_seconds": 0.1472909999993135
+      },
+      "observations_per_second": 6932.404206299054,
+      "input_conversion": {
+        "samples_seconds": [
+          9.820000013860408e-05,
+          9.920000047713984e-05,
+          9.829999908106402e-05,
+          0.00018220000129076652,
+          9.899999895424116e-05
+        ],
+        "median_seconds": 9.899999895424116e-05,
+        "min_seconds": 9.820000013860408e-05,
+        "max_seconds": 0.00018220000129076652
+      },
+      "streaming_numpy_diagnostics": {
+        "series_measured": 1,
+        "update_seconds": 0.16457719996469677,
+        "callback_body_seconds": 0.02768319991810131,
+        "callback_calls": 98416,
+        "update_excluding_callback_bodies_seconds": 0.13689400004659547,
+        "update_latency_median_seconds": 0.0001604999997653067,
+        "update_latency_p95_seconds": 0.00020146000015301973,
+        "final_active_particles": 32
+      }
+    }
+  ],
+  "completed_utc": "2026-11-12T10:44:42.077708+00:00"
+}

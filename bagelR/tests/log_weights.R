@@ -1,4 +1,5 @@
 library(bagelR)
+set_weights <- getFromNamespace("set_weights", "bagelR")
 
 feature <- function(t,tau) matrix(if(tau==0) 1 else c(1,1),ncol=1)
 prior <- function(t) {

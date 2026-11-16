@@ -710,16 +710,10 @@ The threshold should be calibrated through simulation or validation to achieve a
 An `NA` alarm time means the threshold was not crossed; the MAP
 location is conditional on a change, excluding the first weight for no change.
 
-The `change_tracer()` function records the change probability after each update.
-It receives the accumulated history and the current detector, and returns the
-updated history. We call it explicitly in the sequential loop because
-`update()` does not invoke a tracer automatically.
+We record the change probability directly as `1 - w0`, using the no-change
+weight returned by each update.
 
 ```{r online-mean}
-change_tracer <- function(trace, bagel_object) {
-  c(trace, 1 - weights_tau_zero(bagel_object))
-}
-
 online_mean <- sequential_bagel_kv_exact(
   feature_vector = feature_mean, prior = prior_mean,
   transform = transform_mean, p0 = 0.9, p = 1, sigma = 1,
@@ -731,7 +725,7 @@ alarm_time <- NA_integer_
 online_change_trace <- numeric(0)
 for (y in y_mean) {
   w0 <- bagelR::update(online_mean, y)
-  online_change_trace <- change_tracer(online_change_trace, online_mean)
+  online_change_trace <- c(online_change_trace, 1 - w0)
   if (1 - w0 > threshold) {
     alarm_time <- bagelR::time(online_mean)
     break

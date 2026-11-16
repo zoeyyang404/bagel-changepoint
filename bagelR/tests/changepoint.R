@@ -1,4 +1,5 @@
 library(bagelR)
+bagel_result <- getFromNamespace("bagel_result", "bagelR")
 
 result <- function(w, log_w0, threshold = Inf,
                    n = length(log_w0)) {

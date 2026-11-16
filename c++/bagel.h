@@ -10,6 +10,7 @@
 #include "matrix_type.h"
 #include "particle_type.h"
 #include "KL_divergence_type.h"
+#include "pruning_type.h"
 #include "particle_type.h"
 #include "theorem_2.h"
 #include "theorem_3.h"
@@ -35,6 +36,7 @@ struct bagel_type
   probability_type p0;
   real_type s;
   int max_num_particles; 
+  pruning_type pruning_strategy;
   
   particle_type<noise,KL_divergence> initial_particle;
   std::list<particle_type<noise,KL_divergence> > particles;
@@ -44,11 +46,12 @@ struct bagel_type
 	     const noise& noise_structure,
 	     const probability_type& p0,
 	     const probability_type& p,
-	     const int& n)
+	     const int& n,const pruning_type& pruning_strategy_ = pruning_type::bagel)
   {
     t = 1;
     max_num_particles = n;
     initial_particle = particle_type<noise,KL_divergence>(model,noise_structure,0,p0,p);
+    pruning_strategy = pruning_strategy_;
   }
 
 
@@ -87,7 +90,6 @@ struct bagel_type
       }
     else
       {
-	// new particle
 	initial_particle = particles.front();
 	particles.push_back(theorem_2(initial_particle,t));
 
@@ -117,7 +119,7 @@ struct bagel_type
         for(auto& particle : particles)
           particle.log_weight = (particle.log_weight - max_log_weight) - log_scaled_sum;
 
-	particles = prune(particles,max_num_particles);
+	particles = prune(particles,max_num_particles,pruning_strategy);
       }
     t = t + 1; 
     return *this;

@@ -14,6 +14,7 @@
 #include <limits>
 #include <algorithm>
 #include <iterator>
+#include <tuple>
 inline real_type log_add_exp(const real_type& a, const real_type& b)
 {
   if(a == -std::numeric_limits<real_type>::infinity()) return b;
