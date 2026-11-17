@@ -1,0 +1,3 @@
+NULL
+
+loadModule("bagelR", TRUE)

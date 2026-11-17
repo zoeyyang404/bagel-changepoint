@@ -1,0 +1,33 @@
+# R session state
+.Rhistory
+.RData
+.Ruserdata
+
+# Compiled package files and generated documentation
+/bagelR/src/*.o
+/bagelR/src/*.obj
+/bagelR/src/*.dll
+/bagelR/src/*.so
+/bagelR/src/*.a
+/bagelR/src/symbols.rds
+/bagelR/inst/doc/
+/bagelR/vignettes/bagelR.html
+
+# Local package builds and checks
+/bagelR_*.tar.gz
+/bagelR_*.zip
+*.Rcheck/
+
+# Python build and test products
+__pycache__/
+.pytest_cache/
+/python/build/
+/python/dist/
+*.egg-info/
+*.pyd
+/python/benchmarks/results/
+
+# Local review and submission notes
+/HELP_REVIEW.md
+/docs/RELEASE_CHECKLIST.md
+/bagelR/cran-comments.md
