@@ -97,7 +97,7 @@ library(bagelR)
 packageVersion("bagelR")
 ```
 
-The introduction video is stored outside the R package. [Watch the video online and view its credits](release-assets/bagel-introduction/release-notes.md). The vignette thumbnail opens this GitHub page with a video player.
+The introduction video is stored outside the R package. [Access the video and view its credits](release-assets/bagel-introduction/release-notes.md). The vignette thumbnail opens this page, which links to the public MP4; no GitHub sign-in is required.
 
 ## License
 
