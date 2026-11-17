@@ -55,16 +55,39 @@ repository root in R:
 remotes::install_local("bagelR")
 ```
 
-Installation from source requires a C++20 toolchain. To build the introductory vignette as well:
+Installation from source requires a C++20 toolchain. The installation above does
+not build the introductory vignette. To install it, use the following steps.
+
+First restart R (in RStudio: **Session > Restart R**) and do not load `bagelR`
+before installation. On Windows, a loaded package cannot be replaced.
 
 ```r
-install.packages(c("knitr", "rmarkdown"))
-remotes::install_github("zoeyyang404/bagel-changepoint", subdir = "bagelR",
-                        build_vignettes = TRUE)
+install.packages(c("remotes", "knitr", "rmarkdown"))
+rmarkdown::pandoc_available() # Must return TRUE before building the vignette
+
+remotes::install_github(
+  "zoeyyang404/bagel-changepoint",
+  subdir = "bagelR",
+  build_vignettes = TRUE,
+  force = TRUE,
+  upgrade = "never"
+)
+
+# Wait for installation to finish with: * DONE (bagelR)
 vignette("bagelR", package = "bagelR")
 ```
 
-Vignette building also requires Pandoc. The tutorial source is [Getting started with bagelR](bagelR/vignettes/bagelR.Rmd). It covers mean, slope and seasonal changes, autocorrelated errors, and sequential detection.
+`force = TRUE` rebuilds the package even if the same GitHub revision is already
+installed without vignettes. Vignette building also requires Pandoc; if
+`rmarkdown::pandoc_available()` returns `FALSE`, install Pandoc or configure
+`RSTUDIO_PANDOC` to point to the directory containing your Pandoc executable.
+RStudio includes Pandoc.
+
+If installation reports **package 'bagelR' is in use and will not be installed**,
+restart R and rerun the installation before loading the package. A successful
+vignette build alone does not mean the updated package was installed.
+
+The tutorial source is [Getting started with bagelR](bagelR/vignettes/bagelR.Rmd). It covers mean, slope and seasonal changes, autocorrelated errors, and sequential detection.
 
 ```r
 library(bagelR)
