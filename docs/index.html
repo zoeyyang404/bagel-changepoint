@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bagel — Introduction</title>
+  <style>
+    body { margin: 0; background: #f5f4ef; color: #202d37; font: 18px/1.6 system-ui, sans-serif; }
+    main { max-width: 960px; margin: 0 auto; padding: 40px 20px; }
+    h1 { margin-bottom: 8px; font-size: clamp(28px, 5vw, 44px); line-height: 1.2; }
+    video { display: block; width: 100%; background: #111; border-radius: 12px; margin: 24px 0; }
+    a { color: #125a75; text-underline-offset: 3px; }
+    nav { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+    .note { font-size: 15px; color: #47565e; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>An introduction to Bagel</h1>
+    <p>Fast Bayesian online changepoint detection, illustrated with Azure LLM inference trace data.</p>
+    <video controls playsinline preload="metadata" poster="bagel-introduction.jpg" aria-label="Bagel introduction video">
+      <source src="bagel-introduction.mp4" type="video/mp4">
+      Your browser does not support embedded video.
+    </video>
+    <p class="note">Press Play to watch here. No account or installation is required.</p>
+    <nav aria-label="Related resources">
+      <a href="bagelR.html">Read the tutorial</a>
+      <a href="https://github.com/zoeyyang404/bagel-changepoint/blob/main/release-assets/bagel-introduction/release-notes.md">Video credits</a>
+      <a href="https://github.com/zoeyyang404/bagel-changepoint">Source code and installation</a>
+    </nav>
+  </main>
+</body>
+</html>

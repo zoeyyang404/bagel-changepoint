@@ -88,16 +88,16 @@ restart R and rerun the installation before loading the package. A successful
 vignette build alone does not mean the updated package was installed.
 
 The tutorial covers mean, slope and seasonal changes, autocorrelated errors, and sequential detection.
-A [rendered HTML copy](docs/bagelR.html) is included with plots and results; download
-the file and open it in a browser without installing R. GitHub's file view shows
-the HTML source. The [tutorial source](bagelR/vignettes/bagelR.Rmd) is also available.
+[Read the rendered tutorial online](https://zoeyyang404.github.io/bagel-changepoint/bagelR.html),
+including plots and results, without downloading files or installing R.
+The [tutorial source](bagelR/vignettes/bagelR.Rmd) is also available.
 
 ```r
 library(bagelR)
 packageVersion("bagelR")
 ```
 
-The introduction video is stored outside the R package. [Access the video and view its credits](release-assets/bagel-introduction/release-notes.md). The vignette thumbnail opens this page, which links to the public MP4; no GitHub sign-in is required.
+The introduction video is stored outside the R package. [Watch the video in your browser](https://zoeyyang404.github.io/bagel-changepoint/). The vignette thumbnail opens this player; no GitHub sign-in is required. [View video credits](release-assets/bagel-introduction/release-notes.md).
 
 ## License
 

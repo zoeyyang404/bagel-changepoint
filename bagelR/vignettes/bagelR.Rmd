@@ -29,7 +29,7 @@ The algorithm extends classical Bayesian online changepoint detection to linear 
 reduce the cost of posterior updating while maintaining an approximation to the posterior distribution. A short video introduces
 the general idea of Bagel through an application to Azure LLM trace data.
 
-<a href="https://github.com/zoeyyang404/bagel-changepoint/blob/main/release-assets/bagel-introduction/release-notes.md">
+<a href="https://zoeyyang404.github.io/bagel-changepoint/">
   <img src="media/bagel-introduction.jpg" alt="Watch the Bagel introduction video online"
        width="320" style="max-width: 100%; height: auto;">
 </a>
