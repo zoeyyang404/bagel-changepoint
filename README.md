@@ -87,7 +87,10 @@ If installation reports **package 'bagelR' is in use and will not be installed**
 restart R and rerun the installation before loading the package. A successful
 vignette build alone does not mean the updated package was installed.
 
-The tutorial source is [Getting started with bagelR](bagelR/vignettes/bagelR.Rmd). It covers mean, slope and seasonal changes, autocorrelated errors, and sequential detection.
+The tutorial covers mean, slope and seasonal changes, autocorrelated errors, and sequential detection.
+A [rendered HTML copy](docs/bagelR.html) is included with plots and results; download
+the file and open it in a browser without installing R. GitHub's file view shows
+the HTML source. The [tutorial source](bagelR/vignettes/bagelR.Rmd) is also available.
 
 ```r
 library(bagelR)
