@@ -2,7 +2,7 @@ An introduction to Bagel, a fast Bayesian online changepoint detection algorithm
 
 [Watch the introduction video in your browser](https://zoeyyang404.github.io/bagel-changepoint/)
 
-Press Play on the linked page. No GitHub sign-in or manual download is required.
+Press Play on the linked page.
 
 
 ## Credits

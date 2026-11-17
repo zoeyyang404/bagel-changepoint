@@ -97,7 +97,7 @@ library(bagelR)
 packageVersion("bagelR")
 ```
 
-The introduction video is stored outside the R package. [Watch the video in your browser](https://zoeyyang404.github.io/bagel-changepoint/). The vignette thumbnail opens this player; no GitHub sign-in is required. [View video credits](release-assets/bagel-introduction/release-notes.md).
+The introduction video is stored outside the R package. [Watch the video in your browser](https://zoeyyang404.github.io/bagel-changepoint/). The vignette thumbnail opens this player. [View video credits](release-assets/bagel-introduction/release-notes.md).
 
 ## License
 

@@ -34,6 +34,8 @@ the general idea of Bagel through an application to Azure LLM trace data.
        width="320" style="max-width: 100%; height: auto;">
 </a>
 
+Click the image above to open the video page, then press Play to watch.
+
 The video shows the online setting, while the package supports both offline and online use: data arrive sequentially in the online setting, whereas
 all data are available in the offline setting. This vignette first introduces the model interface through offline examples of changes in mean, slope, and seasonality,
 including a mean change with autocorrelated errors. It then uses a mean change to illustrate the online setting.
