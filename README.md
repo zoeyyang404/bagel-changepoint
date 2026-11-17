@@ -73,6 +73,13 @@ packageVersion("bagelR")
 
 The introduction video is stored outside the R package. [Watch the video online and view its credits](release-assets/bagel-introduction/release-notes.md). The vignette thumbnail opens this GitHub page with a video player.
 
+## License
+
+Bagel is licensed under the GNU General Public License, version 2 or (at your
+option) any later version (GPL-2.0-or-later). See [LICENSE](LICENSE) for the
+license text. This matches the `GPL (>= 2)` declaration in `bagelR/DESCRIPTION`.
+Existing copyright notices and third-party license terms remain applicable.
+
 ## Building and checking
 
 We edit R help in the roxygen comments in `bagelR/R/`, then regenerate it
