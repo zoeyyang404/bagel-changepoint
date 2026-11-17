@@ -56,8 +56,8 @@ Models via Posterior Merging. \url{https://arxiv.org/abs/2611.03230v1}.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/grosed/bagel}
-  \item Report bugs at \url{https://github.com/grosed/bagel/issues}
+  \item \url{https://github.com/zoeyyang404/bagel-changepoint}
+  \item Report bugs at \url{https://github.com/zoeyyang404/bagel-changepoint/issues}
 }
 
 }

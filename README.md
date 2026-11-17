@@ -45,7 +45,7 @@ We install the development package from GitHub as follows:
 
 ```r
 install.packages("remotes")
-remotes::install_github("grosed/bagel", subdir = "bagelR")
+remotes::install_github("zoeyyang404/bagel-changepoint", subdir = "bagelR")
 ```
 
 To install changes from a local checkout, we run the following from the
@@ -59,7 +59,7 @@ Installation from source requires a C++20 toolchain. To build the introductory v
 
 ```r
 install.packages(c("knitr", "rmarkdown"))
-remotes::install_github("grosed/bagel", subdir = "bagelR",
+remotes::install_github("zoeyyang404/bagel-changepoint", subdir = "bagelR",
                         build_vignettes = TRUE)
 vignette("bagelR", package = "bagelR")
 ```

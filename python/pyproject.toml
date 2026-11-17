@@ -28,7 +28,7 @@ test = ["pytest>=7"]
 sklearn = ["scikit-learn>=1.6"]
 
 [project.urls]
-Repository = "https://github.com/grosed/bagel"
+Repository = "https://github.com/zoeyyang404/bagel-changepoint"
 
 [tool.scikit-build]
 cmake.version = ">=3.20"

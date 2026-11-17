@@ -29,7 +29,7 @@ The algorithm extends classical Bayesian online changepoint detection to linear 
 reduce the cost of posterior updating while maintaining an approximation to the posterior distribution. A short video introduces
 the general idea of Bagel through an application to Azure LLM trace data.
 
-<a href="https://github.com/grosed/bagel/blob/1ad535e8c6e7882b379d0a62446577c9c7451c0d/release-assets/bagel-introduction/release-notes.md">
+<a href="https://github.com/zoeyyang404/bagel-changepoint/blob/main/release-assets/bagel-introduction/release-notes.md">
   <img src="media/bagel-introduction.jpg" alt="Watch the Bagel introduction video online"
        width="320" style="max-width: 100%; height: auto;">
 </a>
@@ -42,15 +42,15 @@ Models that can be expressed as linear Gaussian models with the conjugate priors
 
 
 # Installation
-The vignette uses the v1.8.2 version.
+The vignette uses package version 1.8.2. Install the maintained version from the main branch:
 
 ```r
 install.packages("remotes", repos = "https://cloud.r-project.org")
 
 remotes::install_github(
-  "grosed/bagel",
+  "zoeyyang404/bagel-changepoint",
   subdir = "bagelR",
-  ref = "v1.8.2",
+  ref = "main",
   force = TRUE
 )
 ```
